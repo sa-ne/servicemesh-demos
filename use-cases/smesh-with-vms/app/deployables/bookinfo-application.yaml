@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bookinfo-application
+  namespace: openshift-gitops
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  destination:
+    namespace: smesh-with-vms
+    server: "https://kubernetes.default.svc"
+  project: default
+  source:
+    directory:
+      include: bookinfo.yaml
+    path: samples/bookinfo/platform/kube
+    repoURL: "https://github.com/maistra/istio.git"
+    targetRevision: maistra-2.1
+  syncPolicy:
+    automated:
+      selfHeal: true

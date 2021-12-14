@@ -1,0 +1,18 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  labels:
+    clusterType: non-Openshift
+    app: olm-app-policy
+  name: placement-non-openshift
+  namespace: policies
+spec:
+  clusterConditions:
+    - status: "True"
+      type: ManagedClusterConditionAvailable
+  clusterSelector:
+    matchExpressions:
+      - key: vendor
+        operator: NotIn
+        values:
+          - "OpenShift"

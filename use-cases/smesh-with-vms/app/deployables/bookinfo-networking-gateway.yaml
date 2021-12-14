@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bookinfo-networking-gateway
+  namespace: openshift-gitops
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  destination:
+    namespace: smesh-with-vms
+    server: "https://kubernetes.default.svc"
+  project: default
+  source:
+    directory:
+      include: bookinfo-gateway.yaml
+    path: samples/bookinfo/networking
+    repoURL: "https://github.com/maistra/istio.git"
+    targetRevision: maistra-2.1
+  syncPolicy:
+    automated:
+      selfHeal: true

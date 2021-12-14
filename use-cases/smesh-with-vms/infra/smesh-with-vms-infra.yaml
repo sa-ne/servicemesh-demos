@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: smesh-with-vms-infra
+  namespace: openshift-gitops
+  annotations:
+    argocd.argoproj.io/sync-wave: "-3"
+spec:
+  destination:
+    namespace: openshift-gitops
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: use-cases/smesh-with-vms/infra/deployables
+    repoURL: https://github.com/sa-ne/servicemesh-demos.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+status:
+  health: {}
+  summary: {}
+  sync:
+    comparedTo:
+      destination: {}
+      source:
+        repoURL: ""
+    status: ""
