@@ -2,6 +2,4 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: policies
-spec:
-  finalizers:
-    - kubernetes
+spec: {}
