@@ -1,0 +1,105 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  annotations:
+    name.os.template.kubevirt.io/fedora34: Fedora 32 or higher
+    description: VM example
+  labels:
+    app: details
+    version: vm    
+    os.template.kubevirt.io/fedora34: 'true'
+    flavor.template.kubevirt.io/small: 'true'
+    vm.kubevirt.io/template: fedora-server-small
+    vm.kubevirt.io/template.version: v0.16.2
+    vm.kubevirt.io/template.namespace: openshift
+    vm.kubevirt.io/template.revision: '1'
+    workload.template.kubevirt.io/server: 'true'
+  name: details-vm
+  namespace: smesh-with-vms
+spec:
+  dataVolumeTemplates:
+    - apiVersion: cdi.kubevirt.io/v1beta1
+      kind: DataVolume
+      metadata:
+        creationTimestamp: null
+        name: details-vm
+      spec:
+        pvc:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 30Gi
+          volumeMode: Filesystem
+        source:
+          registry:
+            url: 'docker://quay.io/kubevirt/fedora-cloud-container-disk-demo:latest'
+  running: true
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: 'true'
+        vm.kubevirt.io/flavor: small
+        vm.kubevirt.io/os: fedora
+        vm.kubevirt.io/workload: server
+      labels:
+        app: details
+        version: vm        
+        flavor.template.kubevirt.io/small: 'true'
+        kubevirt.io/domain: details-vm
+        kubevirt.io/size: small
+        os.template.kubevirt.io/fedora34: 'true'
+        vm.kubevirt.io/name: details-vm
+        workload.template.kubevirt.io/server: 'true'
+    spec:
+      domain:
+        cpu:
+          cores: 1
+          sockets: 1
+          threads: 1
+        devices:
+          disks:
+            - bootOrder: 1
+              disk:
+                bus: virtio
+              name: details-vm
+            - disk:
+                bus: virtio
+              name: cloudinitdisk
+          interfaces:
+            - masquerade: {}
+              model: virtio
+              name: default
+              ports:
+                - name: http
+                  port: 9080
+                - name: ssh
+                  port: 22              
+          networkInterfaceMultiqueue: true
+          rng: {}
+        machine:
+          type: pc-q35-rhel8.4.0
+        resources:
+          requests:
+            memory: 2Gi
+      hostname: details-vm
+      networks:
+        - name: default
+          pod: {}
+      terminationGracePeriodSeconds: 180
+      volumes:
+        - dataVolume:
+            name: details-vm
+          name: details-vm
+        - cloudInitNoCloud:
+            userData: |-
+              #cloud-config
+              user: fedora
+              password: fedora
+              chpasswd: { expire: False }
+              bootcmd:
+                - "yum install git ruby -y"
+                - "git clone https://github.com/maistra/istio.git"
+                - "cd istio/samples/bookinfo/src/details/"
+                - "ruby details.rb 9080 &"
+          name: cloudinitdisk

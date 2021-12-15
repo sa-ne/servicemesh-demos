@@ -32,6 +32,10 @@
 ### Install Openshift Jaeger Operator on all Openshift Clusters
 
 - kustomize build ./jaeger --enable-alpha-plugins | oc apply -f -
+  
+### Install Openshift Virtualization Operator on all Openshift Clusters
+
+- kustomize build ./openshift-virtualization --enable-alpha-plugins | oc apply -f -
 
 ### Install Openshift Service Mesh Operator on all Openshift Clusters
 
