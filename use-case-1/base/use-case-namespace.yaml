@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: use-case-namespace
+  name: use-case-1-namespace
   namespace: openshift-gitops
 spec:
   destination:
@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: /use-case-1/base/argo-use-case-namespace
+    path: use-case-1/base/argo-use-case-namespace
     repoURL: https://github.com/sa-ne/servicemesh-demos.git
   syncPolicy:
     automated:
