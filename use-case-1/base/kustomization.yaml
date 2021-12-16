@@ -1,4 +1,4 @@
 resources:
-  - namespace.yaml
+  - use-case-namespace.yaml
   - use-case-1-app.yaml
   - use-case-1-infra.yaml
