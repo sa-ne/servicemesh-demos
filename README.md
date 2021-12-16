@@ -43,3 +43,5 @@
 
 
 
+oc label namespace openshift-cnv argocd.argoproj.io/managed-by=openshift-gitops
+oc label namespace istio-system argocd.argoproj.io/managed-by=openshift-gitops

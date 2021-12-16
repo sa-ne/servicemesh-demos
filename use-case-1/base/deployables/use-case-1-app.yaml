@@ -11,6 +11,7 @@ spec:
   source:
     path: use-case-1/app/bookinfo
     repoURL: https://github.com/sa-ne/servicemesh-demos.git
+    targetRevision: working
   syncPolicy:
     automated:
       prune: true
