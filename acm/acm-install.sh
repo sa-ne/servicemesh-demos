@@ -27,6 +27,8 @@ clone $GITOPS_LINK $CLONE_FOLDER
 
 #Create ACM Operator
 oc apply -k $CLONE_FOLDER/advanced-cluster-management/operator/overlays/$CHANNEL
+until [ $(oc get csv -l operators.coreos.com/advanced-cluster-management.open-cluster-management='' -n open-cluster-management -o jsonpath='{.items[0].status.phase}') = "Succeeded" ];do \
+echo "Creating ACM Operator" && sleep 5;done
 
 #Create Pull Secret if not exists
 check_secret_exists $PULL_SECRET_NAME $ACM_NAMESPACE
@@ -37,9 +39,11 @@ then
   oc create secret generic $PULL_SECRET_NAME -n $ACM_NAMESPACE \
   --from-file=.dockerconfigjson=$PULL_SECRET_LOCATION \
   --type=kubernetes.io/dockerconfigjson && \
-  echo "created Secret" || (echo "Could not create secret")
+  (echo "sleeping for secret creation" && sleep 10 ) || (echo "Could not create secret")
 fi
 
+check_secret_exists $PULL_SECRET_NAME $ACM_NAMESPACE
+secret_status=$?
 if [[ $secret_status -eq 0 ]]
 then
   #Append Pull Secret to Overlay
@@ -64,7 +68,12 @@ patches:
       - op: add
         path: /spec/imagePullSecret
         value: $PULL_SECRET_NAME """ > $CLONE_FOLDER/advanced-cluster-management/instance/overlays/secret/kustomization.yaml
+    #Create ACM Hub with pullsecret
+    oc apply -k $CLONE_FOLDER/advanced-cluster-management/instance/overlays/secret/
+else
+    #Create ACM Hub without pullsecret
+    oc apply -k $CLONE_FOLDER/advanced-cluster-management/instance/base
 fi
 
-#Create ACM Hub
- oc apply -k $CLONE_FOLDER/advanced-cluster-management/instance/overlays/secret/
+
+
