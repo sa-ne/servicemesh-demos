@@ -1,5 +1,4 @@
 resources:
   - namespace.yaml
-  - operators-redhat-namespace.yaml
 generators:
   - policy-generator-config.yaml

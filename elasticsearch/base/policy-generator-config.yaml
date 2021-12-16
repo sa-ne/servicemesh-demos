@@ -11,4 +11,6 @@ policyDefaults:
 policies:
   - name: install-elasticsearch-operator
     manifests:
+      - path: operators-redhat-namespace.yaml
+      - path: openshift-elasticsearch-operatorgroup.yaml
       - path: openshift-elasticsearch-subscription.yaml

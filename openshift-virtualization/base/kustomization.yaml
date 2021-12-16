@@ -1,5 +1,4 @@
 resources:
   - namespace.yaml
-  - cnv-namespace.yaml
 generators:
   - policy-generator-config.yaml
