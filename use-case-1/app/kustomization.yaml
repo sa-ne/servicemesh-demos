@@ -13,6 +13,5 @@ resources:
   - ./bookinfo/ratings-deployment.yaml
   - ./bookinfo/reviews-deployment-v2.yaml
   - ./bookinfo/details-service.yaml
-  - ./bookinfo/namespace.yaml
   - ./bookinfo/ratings-service.yaml
   - ./bookinfo/reviews-deployment-v3.yaml

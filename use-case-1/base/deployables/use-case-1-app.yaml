@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: use-case-1/app/bookinfo
+    path: use-case-1/app/
     repoURL: https://github.com/sa-ne/servicemesh-demos.git
     targetRevision: working
   syncPolicy:
