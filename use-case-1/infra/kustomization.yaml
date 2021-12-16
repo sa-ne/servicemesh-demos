@@ -1,0 +1,4 @@
+resources:
+  - kubevirt-hyperconverged.yaml
+  - servicemeshmemberroll.yaml
+  - servicemeshcontrolplane.yaml

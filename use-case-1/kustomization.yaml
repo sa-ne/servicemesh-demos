@@ -1,21 +1,2 @@
-resources:
- - servicemeshcontrolplane.yaml
- - bookinfo-gateway.yaml
- - details-service.yaml
- - namespace.yaml
- - ratings-serviceaccount.yaml
- - reviews-deployment-v2.yaml
- - bookinfo-virtualservice.yaml
- - details-vitualmachine.yaml
- - productpage-deployment.yaml
- - ratings-service.yaml
- - reviews-deployment-v3.yaml
- - servicemeshmemberroll.yaml
- - details-deployment.yaml
- - kubevirt-hyperconverged.yaml
- - productpage-serviceaccount.yaml
- - reviews-serviceaccount.yaml
- - details-serviceaccount.yaml
- - ratings-deployment.yaml
- - reviews-deployment-v1.yaml
- - reviews-service.yaml
+bases:
+  - ../base
