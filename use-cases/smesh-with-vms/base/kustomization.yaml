@@ -1,2 +1,2 @@
 resources:
-  - use-case-1.yaml
+  - smesh-with-vms.yaml
