@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bookinfo-networking-destination-rule
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: smesh-with-vms
+    server: "https://kubernetes.default.svc"
+  project: default
+  source:
+    directory:
+      include: samples/bookinfo/networking/destination-rule-all.yaml
+    path: samples/bookinfo/networking
+    repoURL: "https://github.com/maistra/istio.git"
+    targetRevision: maistra-1.2
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true

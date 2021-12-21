@@ -4,3 +4,5 @@ resources:
   - smesh-with-vms-namespace.yaml
   - smesh-with-vms-traffic-generator.yaml
   - bookinfo-application.yaml
+  - bookinfo-networking-destination-rule.yaml
+  - bookinfo-networking-gateway.yaml
