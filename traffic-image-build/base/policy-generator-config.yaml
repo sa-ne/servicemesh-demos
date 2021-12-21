@@ -13,5 +13,4 @@ policies:
     manifests:
       - path: buildconfig.yaml
       - path: imagestream.yaml
-      - path: namespace.yaml
       - path: rolebinding.yaml

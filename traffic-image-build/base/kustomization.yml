@@ -1,20 +1,49 @@
-namespace: traffic-generator
-
 resources:
   - namespace.yaml
 generators:
   - policy-generator-config.yaml
+namespace: traffic-generator
 
 patches:
+  #Replace Git URL
   - patch: |-
       - op: replace
         path: /spec/policy-templates/0/objectDefinition/spec/object-templates/0/objectDefinition/spec/source/git/uri
         value: https://github.com/sa-ne/servicemesh-demos.git
     target:
       kind: Policy
+  #Replace Git Context Directory
   - patch: |-
       - op: replace
         path: /spec/policy-templates/0/objectDefinition/spec/object-templates/0/objectDefinition/spec/source/contextDir
         value: /traffic-image-build/base
+    target:
+      kind: Policy
+  #Replace Git Branch
+  - patch: |-
+      - op: replace
+        path: /spec/policy-templates/0/objectDefinition/spec/object-templates/0/objectDefinition/spec/source/git/ref
+        value: working
+    target:
+      kind: Policy
+  #Replace Object 0 Namespace
+  - patch: |-
+      - op: replace
+        path: /spec/policy-templates/0/objectDefinition/spec/object-templates/0/objectDefinition/metadata/namespace
+        value: traffic-generator
+    target:
+      kind: Policy
+  #Replace Object 1 Namespace
+  - patch: |-
+      - op: replace
+        path: /spec/policy-templates/0/objectDefinition/spec/object-templates/1/objectDefinition/metadata/namespace
+        value: traffic-generator
+    target:
+      kind: Policy
+  #Replace Object 2 Namespace
+  - patch: |-
+      - op: replace
+        path: /spec/policy-templates/0/objectDefinition/spec/object-templates/2/objectDefinition/metadata/namespace
+        value: traffic-generator
     target:
       kind: Policy
