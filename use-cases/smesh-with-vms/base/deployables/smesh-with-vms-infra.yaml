@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: use-cases/smesh-with-vms/infra/base
+    path: use-cases/smesh-with-vms/infra
     repoURL: https://github.com/sa-ne/servicemesh-demos.git
     targetRevision: working
   syncPolicy:
