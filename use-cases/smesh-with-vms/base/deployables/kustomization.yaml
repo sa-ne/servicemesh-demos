@@ -3,3 +3,4 @@ resources:
   - smesh-with-vms-infra.yaml
   - smesh-with-vms-namespace.yaml
   - smesh-with-vms-traffic-generator.yaml
+  - bookinfo-application.yaml
