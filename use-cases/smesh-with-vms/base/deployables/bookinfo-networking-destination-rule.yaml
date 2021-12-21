@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     directory:
-      include: samples/bookinfo/networking/destination-rule-all.yaml
+      include: destination-rule-all.yaml
     path: samples/bookinfo/networking
     repoURL: "https://github.com/maistra/istio.git"
     targetRevision: maistra-1.2
