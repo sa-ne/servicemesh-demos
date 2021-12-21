@@ -10,7 +10,7 @@ COPY oc.tar /tmp/
 RUN curl -o /tmp/oc.tar https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/oc/latest/linux/oc.tar.gz; exit 0
 
 #Untar oc file
-RUN tar -xvf /tmp/oc.tar && mv /tmp/oc /usr/local/bin
+RUN tar -xzvf /tmp/oc.tar -C /tmp/ && mv /tmp/oc /usr/local/bin
 
 
 # COPY HTMl File
