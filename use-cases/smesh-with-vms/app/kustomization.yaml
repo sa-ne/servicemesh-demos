@@ -1,5 +1,4 @@
 resources:
-  - ./bookinfo/bookinfo-application.yaml
   - ./bookinfo/details-virtualmachine.yaml
 
 namespace: smesh-with-vms
