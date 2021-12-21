@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: use-case-1-app
+  name: smesh-with-vms-app
   namespace: openshift-gitops
 spec:
   destination:
@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: use-case-1/app/
+    path: use-cases/smesh-with-vms/app/base
     repoURL: https://github.com/sa-ne/servicemesh-demos.git
     targetRevision: working
   syncPolicy:

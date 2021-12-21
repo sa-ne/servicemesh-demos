@@ -1,4 +1,5 @@
 resources:
-  - use-case-1-app.yaml
-  - use-case-1-infra.yaml
-  - use-case-1-namespace.yaml
+  - smesh-with-vms-app.yaml
+  - smesh-with-vms-infra.yaml
+  - smesh-with-vms-namespace.yaml
+  - smesh-with-vms-traffic-generator.yaml
