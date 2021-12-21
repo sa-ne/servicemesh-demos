@@ -21,27 +21,27 @@
 
 ### Install Openshift-gitops Operator on all Openshift Clusters
 
-- ```kustomize build ./openshift-gitops/base --enable-alpha-plugins | oc apply -f -```
+- ```kustomize build ./operators/openshift-gitops/base --enable-alpha-plugins | oc apply -f -```
 
 ### Install Openshift ElasticSearch Operator on all Openshift Clusters
 
-- ```kustomize build ./elasticsearch/base --enable-alpha-plugins | oc apply -f -```
+- ```kustomize build ./operators/elasticsearch/base --enable-alpha-plugins | oc apply -f -```
 
 ### Install Openshift Kiali Operator on all Openshift Clusters
 
-- ```kustomize build ./kiali/base --enable-alpha-plugins | oc apply -f -```
+- ```kustomize build ./operators/kiali/base --enable-alpha-plugins | oc apply -f -```
 
 ### Install Openshift Jaeger Operator on all Openshift Clusters
 
-- ```kustomize build ./jaeger/base --enable-alpha-plugins | oc apply -f -```
+- ```kustomize build ./operators/jaeger/base --enable-alpha-plugins | oc apply -f -```
   
 ### Install Openshift Virtualization Operator on all Openshift Clusters
 
-- ```kustomize build ./openshift-virtualization/base --enable-alpha-plugins | oc apply -f -```
+- ```kustomize build ./operators/openshift-virtualization/base --enable-alpha-plugins | oc apply -f -```
 
 ### Install Openshift Service Mesh Operator on all Openshift Clusters
 
-- ```kustomize build ./servicemesh/base --enable-alpha-plugins | oc apply -f -```
+- ```kustomize build ./operators/servicemesh/base --enable-alpha-plugins | oc apply -f -```
 
 ### Give Openshift Gitops Permission on Service Mesh and Virtualization Namespace
 
@@ -52,6 +52,8 @@
 
 ```CSV_NAME=$(oc get csv -n openshift-cnv -l operators.coreos.com/kubevirt-hyperconverged.openshift-cnv='' -o name)```
 
-### Install Use Case 1
+---
 
-```oc apply -k ./use-case-1```
+### Install Smesh with VM's Use Case
+
+```oc apply -k ./use-cases/smesh-with-vms```

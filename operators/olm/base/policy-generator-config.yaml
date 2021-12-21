@@ -1,0 +1,14 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: install-olm-non-openshift
+policyDefaults:
+  namespace: policies
+  placementRulePath: ./placementrule.yaml
+  remediationAction: enforce
+policies:
+  - name: install-olm-non-openshift
+    manifests:
+      - path: channel.yaml
+      - path: subscription.yaml
+      - path: application.yaml

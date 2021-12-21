@@ -1,0 +1,19 @@
+resources:
+  - ./bookinfo/bookinfo-gateway.yaml
+  - ./bookinfo/details-serviceaccount.yaml
+  - ./bookinfo/productpage-deployment.yaml
+  - ./bookinfo/ratings-serviceaccount.yaml
+  - ./bookinfo/reviews-service.yaml
+  - ./bookinfo/bookinfo-virtualservice.yaml
+  - ./bookinfo/details-vitualmachine.yaml
+  - ./bookinfo/productpage-serviceaccount.yaml
+  - ./bookinfo/reviews-deployment-v1.yaml
+  - ./bookinfo/reviews-serviceaccount.yaml
+  - ./bookinfo/details-deployment.yaml
+  - ./bookinfo/ratings-deployment.yaml
+  - ./bookinfo/reviews-deployment-v2.yaml
+  - ./bookinfo/details-service.yaml
+  - ./bookinfo/ratings-service.yaml
+  - ./bookinfo/reviews-deployment-v3.yaml
+
+namespace: smesh-with-vms

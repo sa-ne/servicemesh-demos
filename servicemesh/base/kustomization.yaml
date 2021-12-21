@@ -1,5 +1,0 @@
-resources:
-  - namespace.yaml
-  - istio-namespace.yaml
-generators:
-  - policy-generator-config.yaml

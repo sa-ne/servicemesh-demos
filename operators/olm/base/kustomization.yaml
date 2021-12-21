@@ -1,0 +1,19 @@
+resources:
+  - namespace.yaml
+generators:
+  - policy-generator-config.yaml
+
+#Update Github URL
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/policy-templates/0/objectDefinition/spec/object-templates/0/objectDefinition/spec/pathname
+        value: https://github.com/operator-framework/operator-lifecycle-manager.git
+    target:
+      kind: Policy
+  - patch: |-
+      - op: replace
+        path: /spec/policy-templates/0/objectDefinition/spec/object-templates/1/objectDefinition/metadata/annotations/apps.open-cluster-management.io~1git-branch
+        value: working
+    target:
+      kind: Policy

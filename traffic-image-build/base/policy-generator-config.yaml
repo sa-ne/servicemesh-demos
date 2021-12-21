@@ -1,0 +1,17 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: install-traffic-generator-image
+policyDefaults:
+  namespace: traffic-generator
+  placement:
+    clusterSelectors:
+      vendor: "OpenShift"
+  remediationAction: enforce
+policies:
+  - name: install-traffic-generator-image
+    manifests:
+      - path: buildconfig.yaml
+      - path: imagestream.yaml
+      - path: namespace.yaml
+      - path: rolebinding.yaml

@@ -1,0 +1,20 @@
+namespace: traffic-generator
+
+resources:
+  - namespace.yaml
+generators:
+  - policy-generator-config.yaml
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/policy-templates/0/objectDefinition/spec/object-templates/0/objectDefinition/spec/source/git/uri
+        value: https://github.com/sa-ne/servicemesh-demos.git
+    target:
+      kind: Policy
+  - patch: |-
+      - op: replace
+        path: /spec/policy-templates/0/objectDefinition/spec/object-templates/0/objectDefinition/spec/source/contextDir
+        value: /traffic-image-build/base
+    target:
+      kind: Policy

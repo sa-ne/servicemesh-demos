@@ -1,0 +1,11 @@
+kind: RoleBinding
+metadata:
+  name: traffic-any-sa-image-puller
+subjects:
+  - kind: Group
+    apiGroup: rbac.authorization.k8s.io
+    name: "system:serviceaccounts"
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: "system:image-puller"
