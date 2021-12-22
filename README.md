@@ -27,14 +27,14 @@
 
 - ```kustomize build ./operators/elasticsearch/base --enable-alpha-plugins | oc apply -f -```
 
-### Install Openshift Kiali Operator on all Openshift Clusters
+### Install Openshift Jaeger Operator on all Openshift Clusters  
 
-- ```kustomize build ./operators/kiali/base --enable-alpha-plugins | oc apply -f -```
-
-### Install Openshift Jaeger Operator on all Openshift Clusters
-
-- ```kustomize build ./operators/jaeger/base --enable-alpha-plugins | oc apply -f -```
+```kustomize build ./operators/jaeger/base --enable-alpha-plugins | oc apply -f -```
   
+### Install Openshift Kiali Operator on all Openshift Clusters -->
+
+```kustomize build ./operators/kiali/base --enable-alpha-plugins | oc apply -f -```
+
 ### Install Openshift Virtualization Operator on all Openshift Clusters
 
 - ```kustomize build ./operators/openshift-virtualization/base --enable-alpha-plugins | oc apply -f -```
@@ -45,13 +45,13 @@
 
 ### Give Openshift Gitops Permission on Service Mesh and Virtualization Namespace
 
-```oc label namespace openshift-cnv argocd.argoproj.io/managed-by=openshift-gitops```
+```oc label namespace openshift-cnv argocd.argoproj.io/managed-by=openshift-gitops```  
 ```oc label namespace istio-system argocd.argoproj.io/managed-by=openshift-gitops```
 
-### If using CNV on a virtual environment enable software emulation
+<!--### If using CNV on a virtual environment enable software emulation
 
 ```CSV_NAME=$(oc get csv -n openshift-cnv -l operators.coreos.com/kubevirt-hyperconverged.openshift-cnv='' -o name)```
-
+-->
 ---
 
 ### Install Smesh with VM's Use Case
