@@ -1,0 +1,35 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+  name: smesh-with-vms-app-presync
+  namespace: openshift-gitops
+spec:
+  template:
+    spec:
+      containers:
+        - image: registry.redhat.io/openshift4/ose-cli:v4.7
+          command:
+            - /bin/bash
+            - -c
+            - |
+              export HOME=/tmp/cli
+              echo ""
+              echo -n "Waiting for Infrastructure Required to be Complete"
+              sleep $SLEEP
+              until oc wait --for condition=complete --timeout=30m jobs/smesh-with-vms-infra-postsync -n openshift-gitops 2>&1 >/dev/null
+              do
+                echo -n "."
+                sleep $SLEEP
+              done
+              echo -n -e "DONE\n"
+          imagePullPolicy: Always
+          name: oc-wait-container
+          env:
+          - name: SLEEP
+            value: "15"
+      dnsPolicy: ClusterFirst
+      restartPolicy: OnFailure
+      serviceAccountName: openshift-gitops-argocd-server
+      terminationGracePeriodSeconds: 90
