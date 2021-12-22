@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: smesh-with-vms-infra
   namespace: openshift-gitops
-    annotations:
+  annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
   destination:

@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: bookinfo-networking-destination-rule
   namespace: openshift-gitops
-    annotations:
+  annotations:
     argocd.argoproj.io/sync-wave: "3"
 spec:
   destination:

@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: bookinfo-application
   namespace: openshift-gitops
-    annotations:
+  annotations:
     argocd.argoproj.io/sync-wave: "2"
 spec:
   destination:
