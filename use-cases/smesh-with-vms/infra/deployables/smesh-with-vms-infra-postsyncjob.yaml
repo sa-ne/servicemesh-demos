@@ -4,6 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/hook: PostSync
   name: smesh-with-vms-infra-wait
+  namespace: openshift-gitops
 spec:
   template:
     spec:
@@ -37,5 +38,5 @@ spec:
             value: "15"
       dnsPolicy: ClusterFirst
       restartPolicy: OnFailure
-      serviceAccountName: cli-job-sa
+      serviceAccountName: openshift-gitops-argocd-server
       terminationGracePeriodSeconds: 90
