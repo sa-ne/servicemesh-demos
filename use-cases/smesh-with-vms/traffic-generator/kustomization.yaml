@@ -1,4 +1,3 @@
 resources:
-  - namespace.yaml
-  - rolebinding.yaml
-  - deployment.yaml
+  - smesh-with-vms-traffic-generator.yaml
+  

@@ -1,0 +1,41 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+  name: smesh-with-vms-infra-wait
+spec:
+  template:
+    spec:
+      containers:
+        - image: registry.redhat.io/openshift4/ose-cli:v4.7
+          command:
+            - /bin/bash
+            - -c
+            - |
+              export HOME=/tmp/cli
+              echo ""
+              echo -n "Waiting for Service Mesh Control Plane"
+              sleep $SLEEP
+              until [ $(oc get smcp/basic -n istio-system -o jsonpath='{.status.readiness.components.unready}') = '[]' ] 
+              do
+                echo -n "."
+                sleep $SLEEP
+              done
+              echo -n "Waiting for Kubevirt Ready"
+              sleep $SLEEP
+              until [[ $(oc get HyperConverged/kubevirt-hyperconverged -n openshift-cnv -o jsonpath='{.status.conditions[-1:].reason}') = 'ReconcileCompleted'  &&  $(oc get HyperConverged/kubevirt-hyperconverged -n openshift-cnv -o jsonpath='{.status.conditions[-1:].status}') = 'True' ]]  
+              do
+                echo -n "."
+                sleep $SLEEP
+              done             
+              echo -n -e "DONE\n"
+          imagePullPolicy: Always
+          name: oc-wait-container
+          env:
+          - name: SLEEP
+            value: "15"
+      dnsPolicy: ClusterFirst
+      restartPolicy: OnFailure
+      serviceAccountName: cli-job-sa
+      terminationGracePeriodSeconds: 90

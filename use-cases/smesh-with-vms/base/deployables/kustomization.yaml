@@ -1,8 +1,0 @@
-resources:
-  - smesh-with-vms-app.yaml
-  - smesh-with-vms-infra.yaml
-  - smesh-with-vms-namespace.yaml
-  - smesh-with-vms-traffic-generator.yaml
-  - bookinfo-application.yaml
-  - bookinfo-networking-destination-rule.yaml
-  - bookinfo-networking-gateway.yaml
