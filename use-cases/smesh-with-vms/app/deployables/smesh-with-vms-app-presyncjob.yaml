@@ -3,11 +3,14 @@ kind: Job
 metadata:
   annotations:
     argocd.argoproj.io/hook: PreSync
+  labels:
+    smesh-with-vms-app-presync: ""
   name: smesh-with-vms-app-presync
   namespace: openshift-gitops
 spec:
   template:
     spec:
+      activeDeadlineSeconds: 900
       containers:
         - image: registry.redhat.io/openshift4/ose-cli:v4.7
           command:
@@ -18,6 +21,11 @@ spec:
               echo ""
               echo -n "Waiting for Infrastructure Required to be Complete"
               sleep $SLEEP
+              job_name=""
+              until [[ ! $job_name = "" ]]
+              do
+                job_name=$(oc get jobs -l smesh-with-vms-infra-postsync -n openshift-gitops -o name)
+              done
               until oc wait --for condition=complete --timeout=30m jobs/smesh-with-vms-infra-postsync -n openshift-gitops 2>&1 >/dev/null
               do
                 echo -n "."
