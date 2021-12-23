@@ -1,9 +1,9 @@
 resources:
   - ./smesh-with-vms-app-presyncjob.yaml
   - ./bookinfo-application.yaml
-#  - ./bookinfo-networking-destination-rule.yaml
+  - ./bookinfo-networking-destination-rule.yaml
   - ./bookinfo-networking-gateway.yaml
-#  - ./details-virtualmachine.yaml
+  - ./details-virtualmachine.yaml
   - ./smesh-with-vms-app-postsyncjob.yaml
 patchesJson6902:
   - path: patches/patch-generatename.yaml

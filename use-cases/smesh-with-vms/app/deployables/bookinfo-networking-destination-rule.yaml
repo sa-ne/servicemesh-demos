@@ -15,7 +15,7 @@ spec:
       include: destination-rule-all.yaml
     path: samples/bookinfo/networking
     repoURL: "https://github.com/maistra/istio.git"
-    targetRevision: maistra-1.2
+    targetRevision: maistra-2.1
   syncPolicy:
     automated: {}
     syncOptions:

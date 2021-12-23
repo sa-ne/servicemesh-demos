@@ -15,7 +15,7 @@ spec:
       include: bookinfo.yaml
     path: samples/bookinfo/platform/kube
     repoURL: "https://github.com/maistra/istio.git"
-    targetRevision: maistra-1.2
+    targetRevision: maistra-2.1
   syncPolicy:
     automated: {}
     syncOptions:
