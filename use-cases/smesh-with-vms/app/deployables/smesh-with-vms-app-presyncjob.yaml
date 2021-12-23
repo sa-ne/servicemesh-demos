@@ -20,13 +20,12 @@ spec:
               export HOME=/tmp/cli
               echo ""
               echo -n "Waiting for Infrastructure Required to be Complete"
-              sleep $SLEEP
               job_name=""
               until [[ ! $job_name = "" ]]
               do
                 job_name=$(oc get jobs -l smesh-with-vms-infra-postsync -n openshift-gitops -o name)
               done
-              until oc wait --for condition=complete --timeout=30m jobs/smesh-with-vms-infra-postsync -n openshift-gitops 2>&1 >/dev/null
+              until oc wait --for condition=complete --timeout=30m $job_name -n openshift-gitops 2>&1 >/dev/null
               do
                 echo -n "."
                 sleep $SLEEP
