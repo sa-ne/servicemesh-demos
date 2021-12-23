@@ -10,6 +10,7 @@ metadata:
 spec:
   template:
     spec:
+      activeDeadlineSeconds: 900
       containers:
         - image: registry.redhat.io/openshift4/ose-cli:v4.7
           command:

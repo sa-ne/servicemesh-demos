@@ -27,7 +27,7 @@ spec:
               done
               until oc wait --for condition=complete --timeout=30m $job_name -n openshift-gitops 2>&1 >/dev/null
               do
-                echo -n "."
+                echo -n ".\n"
                 sleep $SLEEP
               done
               echo -n -e "DONE\n"
