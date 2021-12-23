@@ -1,7 +1,8 @@
 resources:
   - smesh-with-vms-namespace.yaml
+  - serviceaccount-job.yaml
+  - clusterrolebindinging-job.yaml
   - kubevirt-hyperconverged.yaml
   - servicemeshcontrolplane.yaml
   - servicemeshmemberroll.yaml
   - smesh-with-vms-infra-postsyncjob.yaml
-

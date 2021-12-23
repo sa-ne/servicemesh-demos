@@ -35,9 +35,9 @@ spec:
           imagePullPolicy: Always
           name: oc-wait-container
           env:
-          - name: SLEEP
-            value: "15"
+            - name: SLEEP
+              value: "15"
       dnsPolicy: ClusterFirst
       restartPolicy: OnFailure
-      serviceAccountName: openshift-gitops-argocd-server
+      serviceAccountName: sa-job
       terminationGracePeriodSeconds: 90
