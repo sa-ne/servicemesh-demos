@@ -3,7 +3,7 @@ kind: Job
 metadata:
   annotations:
     argocd.argoproj.io/hook: PreSync
-  generateName: smesh-with-vms-app-presync-
+  name: smesh-with-vms-app-presync
   namespace: openshift-gitops
 spec:
   template:

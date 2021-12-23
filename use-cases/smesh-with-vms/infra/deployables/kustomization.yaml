@@ -6,3 +6,10 @@ resources:
   - servicemeshcontrolplane.yaml
   - servicemeshmemberroll.yaml
   - smesh-with-vms-infra-postsyncjob.yaml
+patchesJson6902:
+  - path: patches/patch-generatename.yaml
+    target:
+      group: batch
+      version: v1
+      kind: Job
+      name: smesh-with-vms-infra-postsync

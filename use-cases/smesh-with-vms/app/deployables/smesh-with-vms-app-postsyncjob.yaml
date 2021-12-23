@@ -3,7 +3,7 @@ kind: Job
 metadata:
   annotations:
     argocd.argoproj.io/hook: PostSync
-  generateName: smesh-with-vms-app-postsync-
+  name: smesh-with-vms-app-postsync
   namespace: openshift-gitops
 spec:
   template:
