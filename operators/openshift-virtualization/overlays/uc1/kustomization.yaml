@@ -1,2 +1,5 @@
 bases:
-  -  ../../base
+  - ../../base
+
+resources:
+  - kubevirt-hyperconverged.yaml

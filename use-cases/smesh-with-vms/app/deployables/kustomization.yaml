@@ -1,6 +1,6 @@
 resources:
   - ./smesh-with-vms-app-presyncjob.yaml
-  - ./bookinfo-application.yaml
+  #  - ./bookinfo-application.yaml
   - ./bookinfo-networking-destination-rule.yaml
   - ./bookinfo-networking-gateway.yaml
   - ./details-virtualmachine.yaml

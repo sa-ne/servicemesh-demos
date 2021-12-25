@@ -1,2 +1,6 @@
 bases:
-  -  ../../base
+  - ../../base
+
+resources:
+  - servicemeshcontrolplane.yaml
+  - servicemeshmemberroll.yaml

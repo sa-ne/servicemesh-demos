@@ -24,7 +24,7 @@ spec:
               do
                 echo -n "."
                 sleep $SLEEP
-              done
+              done             
               echo -n -e "Deployment Ready \n"
               echo -n "Waiting for Reviews Deployment" 
               sleep $SLEEP
