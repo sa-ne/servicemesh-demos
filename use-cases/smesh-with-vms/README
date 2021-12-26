@@ -1,10 +1,20 @@
-Use Case-1
-# This use case shows how to run an microservice application in a mixed container and virtual machine environment.
-# Will Create kubevirt-hyberconverged object for Openshift Virtualization
-# Uses Openshift Gitops for Application 
+# Smesh with VM's Use Case  
 
+## This use case shows how to run an microservice application in a mixed container and virtual machine environment
 
+## To create Application
 
-# Known Problems
+1 Install Operators and Traffic Generation Image from Readme - [servicemesh-demos](https://github.com/sa-ne/servicemesh-demos)
 
-- For some reason the servicemeshmemberroll does not always catch the namespace correctly or does not inject istio-proxy into pods.If this happens delete the servicemeshmemberroll in istio-system and allow gitops re-create it.
+2 Create ArgoCD Application for Infrastructure required by use case
+  ```kustomize build ./use-cases/smesh-with-vms/infra/ --enable-alpha-plugins | oc apply -f -```
+
+3 Create ArgoCD Application for Bookinfo Application Components
+  ```kustomize build ./use-cases/smesh-with-vms/app --enable-alpha-plugins | oc apply -f -```
+
+4 Create ArgoCD Application for Traffic Generation
+  ```kustomize build ./use-cases/smesh-with-vms/traffic-generator/ --enable-alpha-plugins | oc apply -f -```
+
+## Known Problems
+
+- The servicemeshmesh sync does not always work correctly or does not inject istio-proxy into pods.If this happens delete the servicemeshmemberroll in istio-system and allow gitops re-create it.
