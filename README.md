@@ -11,6 +11,7 @@
 
 ---
 
+
 ### STATUS - Working but no checks for pre-requisites yet, Commands might have to be run multiple times
 
 ### - Install ACM Operator and create ACM Hub
@@ -57,3 +58,23 @@
 ### Install Smesh with VM's Use Case
 
 ```oc apply -k ./use-cases/smesh-with-vms```
+=======
+- kustomize build ./openshift-gitops/ --enable-alpha-plugins | oc apply -f -
+
+### Install Openshift ElasticSearch Operator on all Openshift Clusters
+
+- kustomize build ./elasticsearch --enable-alpha-plugins | oc apply -f -
+
+### Install Openshift Kiali Operator on all Openshift Clusters
+
+- kustomize build ./kiali --enable-alpha-plugins | oc apply -f -
+
+### Install Openshift Jaeger Operator on all Openshift Clusters
+
+- kustomize build ./jaeger --enable-alpha-plugins | oc apply -f -
+
+### Install Openshift Service Mesh Operator on all Openshift Clusters
+
+- kustomize build ./servicemesh/ --enable-alpha-plugins | oc apply -f -
+
+
