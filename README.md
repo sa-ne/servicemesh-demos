@@ -11,7 +11,7 @@
 
 ---
 
-### TODO - Working but no checks for pre-requisites yet, Commands might have to be run multiple times
+### STATUS - Working but no checks for pre-requisites yet, Commands might have to be run multiple times
 
 ### - Install ACM Operator and create ACM Hub
 
