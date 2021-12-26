@@ -17,6 +17,5 @@ spec:
     repoURL: "https://github.com/maistra/istio.git"
     targetRevision: maistra-2.1
   syncPolicy:
-    automated: {}
-    syncOptions:
-      - CreateNamespace=true
+    automated:
+      selfHeal: true
