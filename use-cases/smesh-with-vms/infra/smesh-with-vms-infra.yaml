@@ -13,7 +13,7 @@ spec:
   source:
     path: use-cases/smesh-with-vms/infra/deployables
     repoURL: https://github.com/sa-ne/servicemesh-demos.git
-    targetRevision: working
+    targetRevision: main
   syncPolicy:
     automated:
       prune: true

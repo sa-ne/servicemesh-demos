@@ -23,7 +23,7 @@ patches:
   - patch: |-
       - op: replace
         path: /spec/policy-templates/0/objectDefinition/spec/object-templates/0/objectDefinition/spec/source/git/ref
-        value: working
+        value: main
     target:
       kind: Policy
   #Replace Object 0 Namespace

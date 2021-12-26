@@ -14,6 +14,6 @@ patches:
   - patch: |-
       - op: replace
         path: /spec/policy-templates/0/objectDefinition/spec/object-templates/1/objectDefinition/metadata/annotations/apps.open-cluster-management.io~1git-branch
-        value: working
+        value: main
     target:
       kind: Policy
