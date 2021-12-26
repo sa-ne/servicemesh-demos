@@ -1,0 +1,45 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+  labels:
+    smesh-with-vms-app-postsync: ""
+  name: smesh-with-vms-app-postsync
+  namespace: openshift-gitops
+spec:
+  template:
+    spec:
+      containers:
+        - image: registry.redhat.io/openshift4/ose-cli:v4.7
+          command:
+            - /bin/bash
+            - -c
+            - |
+              export HOME=/tmp/cli
+              echo ""
+              echo -n "Waiting for Bookinfo Details Deployment"
+              sleep $SLEEP
+              until oc rollout status deployment/details-v1 -n smesh-with-vms --timeout=30m 2>&1 >/dev/null
+              do
+                echo -n "."
+                sleep $SLEEP
+              done            
+              echo -n -e "Deployment Ready \n"
+              echo -n "Waiting for Reviews Deployment" 
+              sleep $SLEEP
+              until oc rollout status deployment/reviews-v1 -n smesh-with-vms --timeout=30m 2>&1 >/dev/null
+              do
+                echo -n "."
+                sleep $SLEEP
+              done             
+              echo -n -e "Deployment Ready \n"
+          imagePullPolicy: Always
+          name: oc-wait-container
+          env:
+            - name: SLEEP
+              value: "15"
+      dnsPolicy: ClusterFirst
+      restartPolicy: OnFailure
+      serviceAccountName: sa-job
+      terminationGracePeriodSeconds: 90
