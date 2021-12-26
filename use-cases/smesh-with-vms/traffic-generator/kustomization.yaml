@@ -1,0 +1,3 @@
+resources:
+  - smesh-with-vms-traffic-generator.yaml
+  

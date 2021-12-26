@@ -1,0 +1,45 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: smesh-with-vms-traffic-sender
+  namespace: traffic-generator
+  labels:
+    app: smesh-with-vms-traffic-sender
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: smesh-with-vms-traffic-sender
+  template:
+    metadata:
+      labels:
+        app: smesh-with-vms-traffic-sender
+        deploymentconfig: smesh-with-vms-traffic-sender
+    spec:
+      containers:
+        - name: ubi8-nc
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/traffic-generator/ubi8-nc:latest
+          resources: {}
+          command:
+            - /bin/bash
+            - -c
+            - |
+              export GATEWAY_URL=$(oc -n istio-system get route istio-ingressgateway -o jsonpath="{.spec.host}")
+              while :;do curl -k -o /dev/null -s -w "Calling productpage - HTTP RESPONSE: %{http_code}\n" http://$GATEWAY_URL/productpage && sleep $SLEEP;done
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+          env:
+            - name: SLEEP
+              value: "10"
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

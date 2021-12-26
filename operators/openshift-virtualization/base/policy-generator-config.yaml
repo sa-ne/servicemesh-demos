@@ -1,0 +1,16 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: install-openshift-virtualization
+policyDefaults:
+  namespace: policies
+  placement:
+    clusterSelectors:
+      vendor: "OpenShift"
+  remediationAction: enforce
+policies:
+  - name: install-openshift-virtualization
+    manifests:
+      - path: openshift-virtualization-namespace.yaml
+      - path: openshift-virtualization-subscription.yaml
+      - path: openshift-virtualization-operatorgroup.yaml
