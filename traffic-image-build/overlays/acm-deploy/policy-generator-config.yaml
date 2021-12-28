@@ -11,6 +11,6 @@ policyDefaults:
 policies:
   - name: install-traffic-generator-image
     manifests:
-      - path: buildconfig.yaml
-      - path: imagestream.yaml
-      - path: rolebinding.yaml
+      - path: ../../base/buildconfig.yaml
+      - path: ../../base/imagestream.yaml
+      - path: ../../base/rolebinding.yaml

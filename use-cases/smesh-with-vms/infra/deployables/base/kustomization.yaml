@@ -1,0 +1,5 @@
+resources:
+  - smesh-with-vms-namespace.yaml
+  - kubevirt-hyperconverged.yaml
+  - servicemeshcontrolplane.yaml
+  - servicemeshmemberroll.yaml

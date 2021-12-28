@@ -2,6 +2,7 @@ kind: BuildConfig
 apiVersion: build.openshift.io/v1
 metadata:
   name: ubi8-nc
+  namespace: traffic-generator
   labels:
     app: ubi8-nc
 spec:
@@ -21,8 +22,9 @@ spec:
   source:
     type: Git
     git:
-      uri: "url"
-    contextDir: folder
+      uri: "https://github.com/sa-ne/servicemesh-demos.git"
+      ref: main
+    contextDir: /traffic-image-build/base
   triggers:
     - type: ConfigChange
   runPolicy: Serial

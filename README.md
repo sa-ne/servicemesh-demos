@@ -30,11 +30,11 @@
 
 ### Install Openshift Jaeger Operator on all Openshift Clusters  
 
-```kustomize build ./operators/jaeger/base --enable-alpha-plugins | oc apply -f -```
+- ```kustomize build ./operators/jaeger/base --enable-alpha-plugins | oc apply -f -```
   
 ### Install Openshift Kiali Operator on all Openshift Clusters -->
 
-```kustomize build ./operators/kiali/base --enable-alpha-plugins | oc apply -f -```
+- ```kustomize build ./operators/kiali/base --enable-alpha-plugins | oc apply -f -```
 
 ### Install Openshift Virtualization Operator on all Openshift Clusters
 
@@ -43,6 +43,10 @@
 ### Install Openshift Service Mesh Operator on all Openshift Clusters
 
 - ```kustomize build ./operators/servicemesh/base --enable-alpha-plugins | oc apply -f -```
+
+### Install the Traffic Image Build. Container Image is used to generate traffic for servicemesh use cases
+
+- ```kustomize build ./traffic-image-build/base --enable-alpha-plugins | oc apply -f -```
 
 ### Give Openshift Gitops Permission on Service Mesh and Virtualization Namespace
 
@@ -56,4 +60,5 @@
 ---
 
 ### Install Smesh with VM's Use Case
+
 1 Steps in ./use-cases/smesh-with-vms/README
