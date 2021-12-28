@@ -1,0 +1,17 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: install-openshift-servicemesh
+policyDefaults:
+  namespace: policies
+  placement:
+    clusterSelectors:
+      vendor: "OpenShift"
+      env: dev
+  remediationAction: enforce
+policies:
+  - name: install-smesh-with-vms
+    manifests:
+      - path: ../app/smesh-with-vms-app.yaml
+      - path: ../infra/smesh-with-vms-infra.yaml
+      - path: ../traffic-generator/smesh-with-vms-traffic-generator.yaml

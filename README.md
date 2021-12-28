@@ -30,11 +30,11 @@
 
 ### Install Openshift Jaeger Operator on all Openshift Clusters  
 
-```kustomize build ./operators/jaeger/base --enable-alpha-plugins | oc apply -f -```
+- ```kustomize build ./operators/jaeger/base --enable-alpha-plugins | oc apply -f -```
   
 ### Install Openshift Kiali Operator on all Openshift Clusters -->
 
-```kustomize build ./operators/kiali/base --enable-alpha-plugins | oc apply -f -```
+- ```kustomize build ./operators/kiali/base --enable-alpha-plugins | oc apply -f -```
 
 ### Install Openshift Virtualization Operator on all Openshift Clusters
 
