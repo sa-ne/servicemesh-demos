@@ -1,20 +1,22 @@
+bases:
+  - ../../base
 resources:
   - ./smesh-with-vms-app-presyncjob.yaml
   - ./bookinfo-application.yaml
   - ./bookinfo-networking-destination-rule.yaml
   - ./bookinfo-networking-gateway.yaml
-  - ./details-virtualmachine.yaml
   - ./smesh-with-vms-app-postsyncjob.yaml
-patchesJson6902:
-  - path: patches/patch-generatename.yaml
-    target:
-      group: batch
-      version: v1
-      kind: Job
-      name: smesh-with-vms-app-postsync
-  - path: patches/patch-generatename.yaml
-    target:
-      group: batch
-      version: v1
-      kind: Job
-      name: smesh-with-vms-app-postsync
+#https://github.com/argoproj/argo-cd/issues/1639#issuecomment-1004398142
+# patchesJson6902:
+#   - path: patches/patch-generatename.yaml
+#     target:
+#       group: batch
+#       version: v1
+#       kind: Job
+#       name: smesh-with-vms-app-postsync
+#   - path: patches/patch-generatename.yaml
+#     target:
+#       group: batch
+#       version: v1
+#       kind: Job
+#       name: smesh-with-vms-app-presync

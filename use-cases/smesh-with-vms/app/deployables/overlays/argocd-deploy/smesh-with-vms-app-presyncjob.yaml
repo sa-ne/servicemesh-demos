@@ -1,12 +1,12 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
+  name: smesh-with-vms-app-presync
+  namespace: openshift-gitops
   annotations:
     argocd.argoproj.io/hook: PreSync
   labels:
     smesh-with-vms-app-presync: ""
-  name: smesh-with-vms-app-presync
-  namespace: openshift-gitops
 spec:
   template:
     spec:

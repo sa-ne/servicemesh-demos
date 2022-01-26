@@ -21,7 +21,7 @@ This demo will also show multiple ways on how to use Red Hat's Advanced Cluster 
 
 There are several ways to create the application with or without ACM and Openshift Gitops
 
-1 Deploy application manifests directly without ACM or Gitops
+1 Deploy application manifests directly without ACM or Gitops  
 2 Deploy application manifests using Openshift Gitops Application for a Single Cluster
 
 ## 1) Deploy Application manifests directly without using Gitops/ACM
