@@ -1,0 +1,8 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: Channel
+metadata:
+  name: smesh-with-vms-usecase
+  namespace: openshit-gitops
+spec:
+  pathname: channel-url
+  type: Git

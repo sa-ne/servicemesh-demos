@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: use-cases/smesh-with-vms/app/deployables
+    path: use-cases/smesh-with-vms/app/deployables/overlays/argocd-deploy
     repoURL: https://github.com/sa-ne/servicemesh-demos.git
     targetRevision: main
   syncPolicy:

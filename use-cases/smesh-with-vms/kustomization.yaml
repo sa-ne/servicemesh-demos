@@ -1,4 +1,4 @@
 bases:
   - ./infra
-  - ./application
+  - ./app
   - ./traffic-generator

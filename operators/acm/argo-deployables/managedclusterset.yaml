@@ -1,0 +1,15 @@
+## Creates a ManagedClusterSet resource
+#
+# Requires:
+#   * To associate a cluster to this ManagedClusterSet, add the following label:
+#       metadata:
+#         labels:
+#            cluster.open-cluster-management.io/clusterset: demo-clusters
+#            ...
+#
+
+apiVersion: cluster.open-cluster-management.io/v1alpha1
+kind: ManagedClusterSet
+metadata:
+  name: demo-clusters
+spec: {}

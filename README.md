@@ -44,6 +44,10 @@
 
 - ```kustomize build ./operators/servicemesh/base --enable-alpha-plugins | oc apply -f -```
 
+### Install the Traffic Image Build. Container Image is used to generate traffic for servicemesh use cases
+
+- ```kustomize build ./traffic-image-build/base --enable-alpha-plugins | oc apply -f -```
+
 ### Give Openshift Gitops Permission on Service Mesh and Virtualization Namespace
 
 ```oc label namespace openshift-cnv argocd.argoproj.io/managed-by=openshift-gitops```  
@@ -56,4 +60,5 @@
 ---
 
 ### Install Smesh with VM's Use Case
+
 1 Steps in ./use-cases/smesh-with-vms/README

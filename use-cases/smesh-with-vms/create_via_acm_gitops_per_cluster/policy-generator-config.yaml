@@ -1,0 +1,14 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: smesh-with-vms-acm-per-cluster
+policyDefaults:
+  namespace: policies
+  placement:
+    clusterSelectors:
+      app: smesh-with-vms
+  remediationAction: enforce
+policies:
+  - name: install-smesh-with-vms-usecase
+    manifests:
+      - path: ./policies-namespace.yaml

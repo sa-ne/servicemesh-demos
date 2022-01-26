@@ -1,5 +1,5 @@
 resources:
-  - namespace.yaml
+  - https://raw.githubusercontent.com/sa-ne/servicemesh-demos/main/traffic-image-build/base/namespace.yaml
 generators:
   - policy-generator-config.yaml
 namespace: traffic-generator
