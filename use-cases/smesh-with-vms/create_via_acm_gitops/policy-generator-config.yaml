@@ -1,14 +1,14 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: PolicyGenerator
 metadata:
-  name: install-openshift-servicemesh
+  name: smesh-with-vms-acm-per-cluster
 policyDefaults:
   namespace: policies
   placement:
     clusterSelectors:
-      vendor: "OpenShift"
+      app: smesh-with-vms
   remediationAction: enforce
 policies:
-  - name: install-openshift-servicemesh
+  - name: install-smesh-with-vms-usecase
     manifests:
-      - path: openshift-servicemesh-subscription.yaml
+      - path: ./policies-namespace.yaml

@@ -1,12 +1,14 @@
       egress-<cluster_name>:
         enabled: true
         requestedNetworkView:
-        - <cluster_name>
+        - <cluster_name>-network
         routerMode: sni-dnat
         service:
           metadata:
             labels:
               federation.maistra.io/egress-for: egress-<cluster_name>
+            annotations:
+              service.beta.kubernetes.io/aws-load-balancer-type: nlb
           ports:
           - port: 15443
             name: tls

@@ -12,7 +12,7 @@ spec:
       type: ManagedClusterConditionAvailable
   clusterSelector:
     matchExpressions:
-      - key: usecase
+      - key: vendor
         operator: In
         values:
-          - "smesh-with-vms-usecase"
+          - "OpenShift"

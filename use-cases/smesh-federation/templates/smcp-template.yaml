@@ -2,7 +2,9 @@ apiVersion: maistra.io/v2
 kind: ServiceMeshControlPlane
 metadata:
   name: <cluster_name>-mesh
-  namespace: <cluster_name>-system
+  namespace: federation-demo
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   version: v2.1
   runtime:

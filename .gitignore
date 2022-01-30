@@ -1,1 +1,5 @@
-use-cases/smesh-federation/templates/tmp/*.yaml
+use-cases/smesh-federation/templates/tmp/*
+use-cases/smesh-federation/app/base/
+use-cases/smesh-federation/app/overlays/
+use-cases/smesh-federation/templates/tmp/*kubeconfig
+/use-cases/smesh-federation/infra/deployables-federation/base

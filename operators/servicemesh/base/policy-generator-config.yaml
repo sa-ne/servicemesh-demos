@@ -11,4 +11,5 @@ policyDefaults:
 policies:
   - name: install-openshift-servicemesh
     manifests:
+      - path: istio-namespace.yaml
       - path: openshift-servicemesh-subscription.yaml

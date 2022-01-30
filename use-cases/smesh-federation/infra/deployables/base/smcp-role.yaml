@@ -1,0 +1,14 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: gitops-mesh
+  namespace: federation-demo
+rules:
+  - verbs:
+      - "*"
+    apiGroups:
+      - maistra.io
+      - federation.maistra.io
+    resources:
+      - servicemeshcontrolplanes
+      - servicemeshpeers

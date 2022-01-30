@@ -1,2 +1,8 @@
 resources:
-  - ./rolebinding-argocd-server.yaml
+  - ./federation-namespace.yaml
+  - ./smcp-role.yaml
+  - ./smcp-rolebinding.yaml
+#  - ./openshift-gitops-argocd-server.yaml
+#  - ./openshift-gitops-argocd-application-controller.yaml
+#  - ./openshift-gitops-argocd-dex-server.yaml
+#  - ./openshift-gitops-argocd-redis-ha.yaml

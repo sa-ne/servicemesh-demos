@@ -6,6 +6,8 @@
           metadata:
             labels:
               federation.maistra.io/ingress-for: ingress-<cluster_name>
+            annotations:
+              service.beta.kubernetes.io/aws-load-balancer-type: nlb
           ports:
           - port: 15443
             name: tls
