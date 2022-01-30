@@ -1,6 +1,6 @@
-# Smesh with VM's Use Case  
-
-This use case shows how to run an microservice application in a mixed container and virtual machine environment
+# ServiceMesh with Openshift Virtualization 
+Status: Ready  
+This use case shows how to run a microservice application in a mixed container and virtual machine environment
 Application to be deployed is the popular bookinfo application used for servicemesh demos.
 This demo will also show multiple ways on how to use Red Hat's Advanced Cluster Management Product and Openshift Gitops in different ways.
 
@@ -28,9 +28,9 @@ There are several ways to create the application with or without ACM and Openshi
 
 ### Prerequisites  
 
-- Install all required Operators and Traffic Generation Image
+- [Install all required Operators and Traffic Generation Image](https://github.com/sa-ne/servicemesh-demos#status---working-but-no-checks-for-pre-requisites-yet-commands-might-have-to-be-run-multiple-times)
   
-- Make sure Traffic Generator Pod is installed  
+- Traffic Generator Image can be installed without ACM  
   ```oc apply -k ./traffic-image-build/base```
 
 ### Steps  

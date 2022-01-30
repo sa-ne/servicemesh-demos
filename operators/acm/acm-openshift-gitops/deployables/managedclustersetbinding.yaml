@@ -3,7 +3,7 @@
 apiVersion: cluster.open-cluster-management.io/v1alpha1
 kind: ManagedClusterSetBinding
 metadata:
-  name: demo-clusters
+  name: smesh-demo-clusters
   namespace: openshift-gitops
 spec:
-  clusterSet: demo-clusters
+  clusterSet: smesh-demo-clusters

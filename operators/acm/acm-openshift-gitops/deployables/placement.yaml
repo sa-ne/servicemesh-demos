@@ -2,14 +2,14 @@
 apiVersion: cluster.open-cluster-management.io/v1alpha1
 kind: Placement
 metadata:
-  name: all-demo-clusters
+  name: smesh-demo-clusters
   namespace: openshift-gitops
 spec:
   predicates:
     - requiredClusterSelector:
         labelSelector:
           matchExpressions:
-            - key: env
-              operator: "In"
-              values:
-                - dev
+          - key: demo-usage
+            operator: "In"
+            values:
+            - smesh-demo-clusters

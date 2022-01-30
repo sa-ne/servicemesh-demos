@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: infra
+spec:
+  generators:
+    - clusters: {} # Automatically use all clusters defined within Argo CD
+  template:
+    metadata:
+      name: "{{name}}-smesh-federation-infra" # 'name' field of the Secret
+    spec:
+      project: "default"
+      source:
+        repoURL: https://github.com/sa-ne/servicemesh-demos
+        targetRevision: federation
+        path: /use-cases/smesh-federation/infra/deployables/base
+      destination:
+        server: "{{server}}" # 'server' field of the secret
+        namespace: openshift-gitops

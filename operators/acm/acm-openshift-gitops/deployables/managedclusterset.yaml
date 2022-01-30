@@ -4,12 +4,12 @@
 #   * To associate a cluster to this ManagedClusterSet, add the following label:
 #       metadata:
 #         labels:
-#            cluster.open-cluster-management.io/clusterset: demo-clusters
+#            cluster.open-cluster-management.io/clusterset: smesh-demo-clusters
 #            ...
 #
 
 apiVersion: cluster.open-cluster-management.io/v1alpha1
 kind: ManagedClusterSet
 metadata:
-  name: demo-clusters
+  name: smesh-demo-clusters
 spec: {}

@@ -1,0 +1,14 @@
+      egress-<cluster_name>:
+        enabled: true
+        requestedNetworkView:
+        - <cluster_name>
+        routerMode: sni-dnat
+        service:
+          metadata:
+            labels:
+              federation.maistra.io/egress-for: egress-<cluster_name>
+          ports:
+          - port: 15443
+            name: tls
+          - port: 8188
+            name: http-discovery

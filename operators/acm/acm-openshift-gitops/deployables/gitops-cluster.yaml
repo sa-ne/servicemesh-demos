@@ -1,7 +1,7 @@
 apiVersion: apps.open-cluster-management.io/v1beta1
 kind: GitOpsCluster
 metadata:
-  name: gitops-cluster-1
+  name: gitops-cluster-smesh-demo
   namespace: openshift-gitops
 spec:
   argoServer:
@@ -10,4 +10,4 @@ spec:
   placementRef:
     kind: Placement
     apiVersion: cluster.open-cluster-management.io/v1alpha1
-    name: all-demo-clusters
+    name: smesh-demo-clusters
