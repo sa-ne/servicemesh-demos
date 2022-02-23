@@ -1,10 +1,10 @@
 resources:
-  - channel.yaml
-  - subscription-app.yaml
-  - subscription-infra.yaml
-  - subscription-traffic.yaml
   - application.yaml
+  - channel.yaml
   - placementrule.yaml
+  - subscription-infra.yaml
+  - subscription-app.yaml
+  - subscription-traffic.yaml
 
 #Policies required for this use case
 #generators:

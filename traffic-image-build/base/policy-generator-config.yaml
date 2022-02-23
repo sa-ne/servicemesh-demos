@@ -1,0 +1,17 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: install-traffic-image-build
+policyDefaults:
+  namespace: policies
+  placement:
+    clusterSelectors:
+      vendor: "OpenShift"
+  remediationAction: enforce
+policies:
+  - name: install-traffic-image-build
+    manifests:
+      - path: traffic-namespace.yaml
+      - path: buildconfig.yaml
+      - path: imagestream.yaml
+      - path: rolebinding.yaml

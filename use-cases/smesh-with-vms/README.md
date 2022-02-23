@@ -52,8 +52,7 @@ Deploy the application using openshift GitOps/ArgoCD Application Objects.To depl
 ### Prerequisites
 
 - [Install all required Operators and Traffic Generation Image](https://github.com/sa-ne/servicemesh-demos#--install-acm-operator-and-create-acm-hub)
-- Traffic Generator Image is required  
-  `oc apply -k ./traffic-image-build/base`
+- [Traffic Generator Image is required](https://github.com/sa-ne/servicemesh-demos#install-the-traffic-image-build-container-image-is-used-to-generate-traffic-for-servicemesh-use-cases)  
 
 ### Steps
 
@@ -78,8 +77,7 @@ We can also use Red Hat ACM to deploy the Openshift GitOps/ArgoCD Application Ob
 
 - [Install all required Operators and Traffic Generation Image](https://github.com/sa-ne/servicemesh-demos#--install-acm-operator-and-create-acm-hub)
 
-- Traffic Generator Image is required  
-  `oc apply -k ./traffic-image-build/base`
+- [Traffic Generator Image is required](https://github.com/sa-ne/servicemesh-demos#install-the-traffic-image-build-container-image-is-used-to-generate-traffic-for-servicemesh-use-cases)  
 
 ### Steps
 
@@ -96,8 +94,7 @@ This also means that we only require 1 Openshift GitOps/ArgoCD Operator Installe
 
 - [Install all required Operators and Traffic Generation Image](https://github.com/sa-ne/servicemesh-demos#--install-acm-operator-and-create-acm-hub)
 
-- Traffic Generator Image is required  
-  `oc apply -k ./traffic-image-build/base`
+- [Traffic Generator Image is required](https://github.com/sa-ne/servicemesh-demos#install-the-traffic-image-build-container-image-is-used-to-generate-traffic-for-servicemesh-use-cases)  
 
 - Create an Openshift GitOpsCLuster Object to add all Openshift Clusters into the same OpenShift GitOps Cluster/Operator.This example assumes the local cluster is used as the central GitOps Operator.
 
@@ -121,7 +118,7 @@ OR
 Label all ManagedClusters except the local cluster  
  `for mc in $(oc get managedclusters -A -o name | grep -v "local-cluster");do oc label $mc demo-usage=smesh-demo-clusters --overwrite=true;done`
 
-4 Confirm clusters are pressent in Openshift Gitops either via the UI or CLI. See ./templates/generate-smcp.sh script for sample.
+4 Confirm clusters are present in Openshift Gitops either via the UI or CLI. See ./templates/generate-smcp.sh script for sample.
 
 ```bash
 export ARGOCD_USERNAME=admin
@@ -134,19 +131,20 @@ argocd login $ARGOCD_URL --username $ARGOCD_USERNAME --password $ARGOCD_PASSWORD
 ```oc apply -k ./use-cases/smesh-with-vms/create_via_applicationset``` 
 
 ## 5) Create application manifests using ACM directly.
+Create the Application via ACM Applications directly and allow ACM handle. 
+Note: To create this correctly user running must have [subscription admin privileges](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.4/html/applications/managing-applications#granting-subscription-admin-privilege)  
 
 ### Prerequisites
 
 - [Install all required Operators and Traffic Generation Image](https://github.com/sa-ne/servicemesh-demos#--install-acm-operator-and-create-acm-hub)
 
-- Traffic Generator Image is required  
-  `oc apply -k ./traffic-image-build/base`
+- [Traffic Generator Image is required](https://github.com/sa-ne/servicemesh-demos#install-the-traffic-image-build-container-image-is-used-to-generate-traffic-for-servicemesh-use-cases)  
 
 ### Steps
 
 1 Clone this Repo  
 2 Change Directory into the cloned folder  
-3 Create application manifests using ACM directly
+3 Create application manifests using ACM directly  
 ```oc apply -k ./use-cases/smesh-with-vms/create_via_acm_application_manifests```  
 
 ## Known Problems

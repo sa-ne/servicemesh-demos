@@ -1,5 +1,4 @@
 resources:
   - namespace.yaml
-  - buildconfig.yaml
-  - imagestream.yaml
-  - rolebinding.yaml
+generators:
+  - policy-generator-config.yaml
