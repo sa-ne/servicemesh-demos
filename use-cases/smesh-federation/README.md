@@ -49,7 +49,7 @@ OR
 Label all ManagedClusters except the local cluster  
  `for mc in $(oc get managedclusters -A -o name | grep -v "local-cluster");do oc label $mc demo-usage=smesh-demo-clusters --overwrite=true;done`
 
-6 Confirm clusters are pressent in Openshift Gitops either via the UI or CLI. See ./templates/generate-smcp.sh script for sample.
+6 Confirm clusters are present in Openshift Gitops either via the UI or CLI. See ./templates/generate-smcp.sh script for sample.
 
 ```bash
 export ARGOCD_USERNAME=admin
