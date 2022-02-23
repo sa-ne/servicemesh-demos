@@ -2,7 +2,8 @@
 
 ## ServiceMesh Demos
 
-### TODO - Summary of what this repo contains
+### Summary of what this repo contains
+Repo provides automation to test/demo interesting connectivity(service mesh e.t.c) and other tools.Repo contains multiple use cases to test in the use case folder in this repo. Each use case has the automation and steps to accomplish it's demo/test.
 
 ### Pre-Requisites
 
@@ -10,9 +11,6 @@
 - [Openshift Policy Generator Kustomize Plugin](https://github.com/open-cluster-management/policy-generator-plugin#as-a-kustomize-plugin)
 
 ---
-
-
-### STATUS - Working but no checks for pre-requisites yet, Commands might have to be run multiple times
 
 ### - Install ACM Operator and create ACM Hub
 
