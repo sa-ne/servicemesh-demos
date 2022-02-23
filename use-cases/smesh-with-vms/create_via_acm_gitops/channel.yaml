@@ -1,0 +1,8 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: Channel
+metadata:
+  name: smesh-with-vms-usecase
+  namespace: openshift-gitops
+spec:
+  pathname: https://github.com/sa-ne/servicemesh-demos.git
+  type: Git

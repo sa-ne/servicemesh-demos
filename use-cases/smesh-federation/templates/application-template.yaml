@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: federation-mesh-generate-<cluster_name>
+  namespace: openshift-gitops
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  destination:
+    namespace: openshift-gitops
+    server: "<cluster_api>"
+  project: default
+  source:
+    path: use-cases/smesh-federation/infra/deployables-federation/<cluster_name>/
+    repoURL: "https://github.com/sa-ne/servicemesh-demos"
+    targetRevision: main
+  syncPolicy: {}

@@ -1,0 +1,5 @@
+namespace: openshift-gitops
+resources:
+  - ./applicationset-infra.yaml
+  - ./applicationset-app.yaml
+  - ./applicationset-traffic.yaml

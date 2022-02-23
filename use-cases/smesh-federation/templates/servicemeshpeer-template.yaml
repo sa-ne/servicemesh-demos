@@ -1,0 +1,22 @@
+kind: ServiceMeshPeer
+apiVersion: federation.maistra.io/v1
+metadata:
+  name: <cluster_name>
+  namespace: federation-demo
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  remote:
+    addresses:
+      - <ingress_addr>
+  gateways:
+    ingress:
+      name: ingress-<cluster_name>
+    egress:
+      name: egress-<cluster_name>
+  security:
+    trustDomain: <cluster_name>.local
+    clientID: <cluster_name>.local/ns/federation-demo/sa/egress-<peer_name>-service-account
+    certificateChain:
+      kind: ConfigMap
+      name: <cluster_name>-istio-ca-root-cert

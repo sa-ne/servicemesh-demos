@@ -1,0 +1,18 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: create-argocd-gitops
+policyDefaults:
+  namespace: policies
+  placement:
+    clusterSelectors:
+      local-cluster: "true"
+  remediationAction: enforce
+policies:
+  - name: create-argocd-gitops
+    manifests:
+      - path: gitops-cluster.yaml
+      - path: managedclusterset.yaml
+      - path: managedclustersetbinding.yaml
+      - path: placement.yaml
+      

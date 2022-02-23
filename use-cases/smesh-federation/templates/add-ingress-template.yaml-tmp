@@ -1,0 +1,15 @@
+      ingress-<cluster_name>:
+        enabled: true
+        routerMode: sni-dnat
+        service:
+          type: LoadBalancer
+          metadata:
+            labels:
+              federation.maistra.io/ingress-for: ingress-<cluster_name>
+            annotations:
+              service.beta.kubernetes.io/aws-load-balancer-type: nlb
+          ports:
+          - port: 15443
+            name: tls
+          - port: 8188
+            name: https-discovery

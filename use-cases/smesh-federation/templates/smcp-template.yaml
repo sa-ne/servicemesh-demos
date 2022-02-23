@@ -1,0 +1,19 @@
+apiVersion: maistra.io/v2
+kind: ServiceMeshControlPlane
+metadata:
+  name: <cluster_name>-mesh
+  namespace: federation-demo
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  version: v2.1
+  runtime:
+    defaults:
+      container:
+        imagePullPolicy: Always
+  gateways:
+    additionalEgress: {}
+    additionalIngress: {}
+  security:
+    trust:
+      domain: <cluster_name>.local

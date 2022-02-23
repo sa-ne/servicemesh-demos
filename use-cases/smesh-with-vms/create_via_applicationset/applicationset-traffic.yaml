@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: smesh-with-vms-traffic
+spec:
+  generators:
+    - clusters: {} # Automatically use all clusters defined within Argo CD
+  template:
+    metadata:
+      name: "{{name}}-smesh-with-vms-traffic" # 'name' field of the Secret
+    spec:
+      project: "default"
+      source:
+        repoURL: https://github.com/sa-ne/servicemesh-demos
+        targetRevision: main
+        path: use-cases/smesh-with-vms/traffic-generator/deployables/overlays/argocd-deploy
+      destination:
+        server: "{{server}}" # 'server' field of the secret
+        namespace: openshift-gitops
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
