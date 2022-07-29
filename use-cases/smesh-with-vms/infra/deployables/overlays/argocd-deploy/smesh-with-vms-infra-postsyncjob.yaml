@@ -1,12 +1,12 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
+  name: smesh-with-vms-infra-postsync
+  namespace: openshift-gitops
   annotations:
     argocd.argoproj.io/hook: PostSync
   labels:
-    smesh-with-vms-infra-postsync: ""
-  name: smesh-with-vms-infra-postsync
-  namespace: openshift-gitops
+    smesh-with-vms-infra-postsync: ''
 spec:
   template:
     spec:
