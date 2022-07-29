@@ -4,10 +4,11 @@ resources:
   - serviceaccount-job.yaml
   - clusterrolebindinging-job.yaml
   - smesh-with-vms-infra-postsyncjob.yaml
-patchesJson6902:
-  - path: patches/patch-generatename.yaml
-    target:
-      group: batch
-      version: v1
-      kind: Job
-      name: smesh-with-vms-infra-postsync
+#Generate Name workaround from kustomize is Broken -- https://github.com/argoproj/argo-cd/issues/1639#issuecomment-494999921
+#patchesJson6902:
+#  - path: patches/patch-generatename.yaml
+#    target:
+#      group: batch
+#      version: v1
+#      kind: Job
+#      name: smesh-with-vms-infra-postsync
